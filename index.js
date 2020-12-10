@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://stripe.com/en-in'],
-    directory: './stripe',
+    urls: ['https://unacademy.com/'],
+    directory: './unacademy',
 };
 
 scrape(options).then((result) => {
