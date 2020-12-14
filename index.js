@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://unacademy.com/'],
-    directory: './unacademy',
+    urls: ['https://www.oberlo.in/blog/instagram-stories#the-power-of-instagram-for-businesses'],
+    directory: './oberlopage',
 };
 
 scrape(options).then((result) => {
