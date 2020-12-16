@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://www.oberlo.in/blog/instagram-stories#the-power-of-instagram-for-businesses'],
-    directory: './oberlopage',
+    urls: ['https://www.sybill.ai/'],
+    directory: './sybill_ai_startup_ms_standord_iit_kanpur',
 };
 
 scrape(options).then((result) => {
