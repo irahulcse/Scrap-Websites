@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://www.sybill.ai/'],
-    directory: './sybill_ai_startup_ms_standord_iit_kanpur',
+    urls: ['https://www.glance.com/'],
+    directory: './glance',
 };
 
 scrape(options).then((result) => {
