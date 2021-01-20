@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://preview.colorlib.com/theme/durg/service.html'],
-    directory: './servicesssssssssssssssssssssssss',
+    urls: ['https://preview.colorlib.com/theme/durg/contact.html'],
+    directory: './contactssssssssssssssssssss',
 };
 
 scrape(options).then((result) => {
