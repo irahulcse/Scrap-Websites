@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://preview.colorlib.com/theme/durg/service.html'],
-    directory: './servicesssssssssssssssssssssssss',
+    urls: ['https://adespresso.com/blog/17-amazing-examples-of-instagram-and-facebook-stories-that-convert/'],
+    directory: './adespresso',
 };
 
 scrape(options).then((result) => {
