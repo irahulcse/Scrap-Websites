@@ -1,1 +1,0 @@
-(function($){$(document).ready(function(){$('[data-toggle="tooltip"]').tooltip().filter('[data-trigger*="click"]').on('click',function(e){e.preventDefault()})})}(jQuery))
