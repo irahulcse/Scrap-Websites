@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content>
+<meta name="keywords" content=" ">
+<title>Agile Planning and Portfolio Management with Azure Boards | Azure DevOps Hands-on-Labs</title>
+<!--<link rel="stylesheet" href="/css/syntax.css">-->
+
+
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+<!--link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"-->
+<!--
+<link rel="stylesheet" href="/css/lavish-bootstrap.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<script src="js/jsll-4.js" type="text/javascript"></script>
+<script type="text/javascript">
+var config = {
+    autoCapture: {
+            lineage: true
+    },
+    coreData: {
+            appId: "AzureDevOpsLabs"
+    }
+};
+awa.init(config);
+</script>
+<script src="js/jquery.min_1.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/new-style.css">
+<link rel="stylesheet" href="css/flickity.css">  
+<script src="js/flickity.pkgd.js"></script>
+
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
+<script src="js/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<!--<link rel="shortcut icon" href="/favicon.ico">-->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+    _linkedin_partner_id = "7850";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script><script type="text/javascript">
+    (function(){var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})();
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none;" alt src="px">
+    </noscript>
+    
+<link rel="alternate" type="application/rss+xml" title="ALMVM" href="https://azuredevopslabs.comfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+    </script>
+    <script>
+        /*hide the right-side bar once the scroll position reaches the footer*/
+        $(document).ready(function(){
+    
+    $(document).scroll(function(){
+  
+      var footerSelector = '#footer-content';
+      var sideBarSelector = '.sidebar-content';
+  
+      var bottomViewPort = $(window).scrollTop()+$(window).height();
+      var footerTop = $(footerSelector ).offset().top;
+  
+      if( bottomViewPort>=footerTop){
+        $(sideBarSelector).fadeOut();
+      }else{
+        $(sideBarSelector).fadeIn();
+      }
+    });
+  
+  });
+    </script>    
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(window).scroll(function(){
+            if ($(window).scrollTop() >= 10) {
+                $('nav').addClass('fixed-header');
+                $('nav div').addClass('visible-title');
+            }
+            else {
+                $('nav').removeClass('fixed-header');
+                $('nav div').removeClass('visible-title');
+            }
+        });
+        
+        </script>
+    
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-93010880-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+<meta property="og:url" content="https://azuredevopslabs.com//labs/azuredevops/agile/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Agile Planning and Portfolio Management with Azure Boards">
+ <meta property="og:description" content="Check out the tutorial 'Agile Planning and Portfolio Management with Azure Boards' and many more at https://aka.ms/devopslabs">
+  <meta property="image" content="https://www.azuredevopslabs.com/images/azuredevopslabs.png"> 
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NMC3LPS');</script>
+    <!-- End Google Tag Manager -->
+  <!-- Sharethis.com -->
+<script type="text/javascript" src="js/sharethis.js#property=5cf4b3620180a500128312ed&amp;product=inline-share-buttons" async="async"></script>
+<!-- Sharethis.com -->
+</head>
+
+<body border="1" border-color="#000000">
+    <!-- Navigation -->
+
+
+<header>
+  <nav class="navbar navbar-expand-sm bg-of-header navbar-dark">
+    <ul class="navbar-nav" style="margin-bottom:-13px">
+      <li class="nav-item" style="margin-top:-26px">
+        <a class="nav-link" href="https://azuredevopslabs.com/"><img src="images/azure-devops.png" height="24" style="margin-top:-7px" alt="company logo"><b class="col-white-fon-20">Azure DevOps Labs</b></a>
+      </li>
+    </ul>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto" style="margin-top:-10px;margin-bottom:-3px;">
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-toggle="tooltip" data-placement="left" title="Send Feedback" onclick="javascript:window.location='mailto:devopsdemos@microsoft.com?subject=DevOps Labs Feedback &body=I have some feedback about the Agile Planning and Portfolio Management with Azure Boards page: ' + window.location.href;">
+            <i class="fa fa-envelope" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Microsoft/azuredevopslabs" data-toggle="tooltip" data-placement="bottom" title="Edit on GitHub">
+            <i class="fa fa-github" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <!--start search-->
+          <div id="search-demo-container" style="padding-top: 6px;">
+            <input type="text" class="search-field" id="search-input" placeholder="search...">
+            <i class="fa fa-search search-icon-css" aria-hidden="true"></i>
+            <ul id="results-container"></ul>
+          </div>
+          <script src="js/jekyll-search.js" type="text/javascript"></script>
+          <script type="text/javascript">
+            SimpleJekyllSearch.init({
+              searchInput: document.getElementById('search-input'),
+              resultsContainer: document.getElementById('results-container'),
+              dataSource: 'https://azuredevopslabs.com/search.json',
+              searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
+              noResultsText: 'No results found.',
+              limit: 6,
+              fuzzy: true,
+            })          
+          </script>
+          <!--end search-->
+        </li>
+      </ul>
+
+      <!---->
+    </div>
+  </nav>
+</header>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="ns.html" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->  
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+    <!-- div style="color:#F87431;height:7px;">-------------------</div-->
+    <!-- Page Content -->
+    <div class="banner2-for-labs text-white" style="padding-top:45px">
+            <div class="container">
+             <div class="row">
+                <div class="col-sm-12">
+                   <div class="post-header">
+                    <p style="margin-bottom:0px">
+                        <span class="PageTitle">Agile Planning and Portfolio Management with Azure Boards</span><br>
+                       <div class="sharethis-inline-share-buttons"></div>
+                       <script>console.log(this);
+                       console.log(page.url);</script>                        
+                        <script>function fbs_click() {u="http://aka.ms/devopslabs";t=Agile+Planning+and+Portfolio+Management+with+Azure+Boards;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
+                        
+                        
+                        Lab version - 1.37.1<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>Last updated - 10/11/2020
+                           
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </p>                
+                    <!-- <p style="margin-bottom:5px">
+                        <a href="http://www.facebook.com/sharer.php?u=https://azuredevopslabs.com//labs/azuredevops/agile/&t=Agile+Planning+and+Portfolio+Management+with+Azure+Boards" onclick="return fbs_click()" target="_blank"><button class="btn btn-sm fb-css"><span class="fa fa-facebook mr-2"></span></button></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://aka.ms/devopslabs&title=Agile+Planning+and+Portfolio+Management+with+Azure+Boards" onclick="return lnk_click()" target="_blank"><button class="btn btn-sm linkedin-css"><span class="fa fa-linkedin"></span></button>
+                        <a href="https://twitter.com/intent/tweet?url=http://aka.ms/devopslabs&text=Agile+Planning+and+Portfolio+Management+with+Azure+Boards&via=visualstudio&hashtags=devopslabs" data-size="large" target="_blank"><button class="btn btn-sm twit-css"><span class="fa fa-twitter"></span></button></a>
+                    </p>
+                    <div class="sharethis-inline-share-buttons"></div> -->
+                   </div>
+                </div>
+             </div>
+            </div>    
+        </div>
+    <div class="container">
+        
+        <!-- Content Row -->
+        <div class="row">
+    
+            <!-- Sidebar Column -->
+            <div class="col-sm-2 hidden-md hidden-xs hidden-sm dis-none">
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+        
+    <li class="sidebarentry">
+        <a class="sidebarheadings" href>Overview</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts">Azure DevOps Hands-on-Labs Overview</a></li>
+            <!--li><a href="labsvsts">Azure DevOps Hands-on-Labs Overview</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Plan</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/agile/">Agile Planning and Portfolio Management with Visual Studio Team Services</a></li>
+            <!--li><a href="labsvstsagile">Agile Planning and Portfolio Management with Visual Studio Team Services</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/teams/">Microsoft Teams Integration (Collaborate, Communicate and Celebrate)</a></li>
+            <!--li><a href="labsvststeams">Microsoft Teams Integration (Collaborate, Communicate and Celebrate)</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Develop</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/git/">Version Control with Git using Visual Studio Team Services</a></li>
+            <!--li><a href="labsvstsgit">Version Control with Git using Visual Studio Team Services</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Build</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/continuousintegration/">Continuous Integration using Visual Studio Team Services</a></li>
+            <!--li><a href="labsvstscontinuousintegration">Continuous Integration using Visual Studio Team Services</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/packagemanagement/">Package Management in Team Services</a></li>
+            <!--li><a href="labsvstspackagemanagement">Package Management in Team Services</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Test</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/testmanagement/">Test Planning and Management with Visual Studio Team Services</a></li>
+            <!--li><a href="labsvststestmanagement">Test Planning and Management with Visual Studio Team Services</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/exploratorytesting/">Exploratory Testing and Feedback Management with Visual Studio Team Services</a></li>
+            <!--li><a href="labsvstsexploratorytesting">Exploratory Testing and Feedback Management with Visual Studio Team Services</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/selenium/">UI Automation using Selenium Tests</a></li>
+            <!--li><a href="labsvstsselenium">UI Automation using Selenium Tests</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/load/">Load and Performance Testing using Visual Studio Team Services</a></li>
+            <!--li><a href="labsvstsload">Load and Performance Testing using Visual Studio Team Services</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Deploy</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/continuousdeployment/">Continuous Deployment using Visual Studio Team Services</a></li>
+            <!--li><a href="labsvstscontinuousdeployment">Continuous Deployment using Visual Studio Team Services</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Monitor</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/monitor/">Monitoring Applications using Application Insights</a></li>
+            <!--li><a href="labsvstsmonitor">Monitoring Applications using Application Insights</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Reporting</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/powerbi/">Connect to Visual Studio Team Services with Power BI</a></li>
+            <!--li><a href="labsvstspowerbi">Connect to Visual Studio Team Services with Power BI</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Azure Labs</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/appservice/">Deploy an ASP.NET WebApp in Azure App Service</a></li>
+            <!--li><a href="labsvstsappservice">Deploy an ASP.NET WebApp in Azure App Service</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/azureresource/">Deploy and Manage Azure Resources</a></li>
+            <!--li><a href="labsvstsazureresource">Deploy and Manage Azure Resources</a></li-->
+                 
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/azurecd/">Setting up Continuous Delivery workflow from the Azure Portal</a></li>
+            <!--li><a href="labsvstsazurecd">Setting up Continuous Delivery workflow from the Azure Portal</a></li-->
+               
+        </ul>
+          
+    </li><li class="sidebarentry">
+        <a class="sidebarheadings" href>Others</a>
+        <ul class="sidebarlisting">
+              
+            <li class="labslistitems"><a class="sidebaritems" href="https://azuredevopslabs.com/labs/vsts/nodejs/">DevOps for Node.js with Visual Studio Team Services and Azure</a></li>
+            <!--li><a href="labsvstsnodejs">DevOps for Node.js with Visual Studio Team Services and Azure</a></li-->
+               
+        </ul>
+          
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+    <!--li class="sidebarTitle"><a href="https://azuredevopslabs.com/">Back To Home</a></li-->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>
+    $("li.active").parents('li').toggleClass("active");
+</script>
+            </div>
+            <!-- Content Column -->
+                <div class="col-sm-10">
+                    
+<div class="post-content">
+<div class="pading-t-10"><a href="https://azuredevopslabs.com//default.html">Home</a> / <span>Agile Planning and Portfolio Management with Azure Boards</span></div>
+<a href="https://github.com/Microsoft/azuredevopslabs/tree/master/labs/azuredevops/agile/"><button class="btn btn-primary btn-sm"><i class="fa fa-github"></i> Edit on GitHub</button></a>
+   
+
+
+
+    
+
+    <!--<a target="_blank" href="https://github.com/microsoft/almvm"> <class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me on GitHub</a>-->
+
+    
+
+  <div class="rw-ui-container"></div>
+<p><a name="Overview"></a></p>
+
+<h2 id="overview">Overview</h2>
+
+<p>In this lab, you will learn about the agile planning and portfolio management tools and processes provided by Azure Boards and how they can help you quickly plan, manage, and track work across your entire team. You will explore the product backlog, sprint backlog, and task boards which can be used to track the flow of work during the course of an iteration. We will also take a look at how the tools have been enhanced in this release to scale for larger teams and organizations.</p>
+
+<div class="bg-slap"><img src="images/mslearn.png" class="img-icon-cloud" alt="MS teams" style="
+    width: 48px; height: 48px;">Want additional learning? Check out the  <a href="https://docs.microsoft.com/en-us/learn/modules/choose-an-agile-approach/" target="_blank"><b><u> Agile approach to software development </u></b></a> module on Microsoft Learn.</div>
+
+<p><a name="Prerequisites"></a></p>
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ul>
+  <li>This lab requires you to complete task 1 from the <a href="../prereq/">prerequisite</a> instructions. (No cloning needed for this lab, skip Task 2)</li>
+</ul>
+
+<p><a name="Exercise1"></a></p>
+<h2 id="exercise-1-agile-project-management">Exercise 1: Agile Project Management</h2>
+
+<p><a name="Ex1Task1"></a></p>
+<h3 id="task-1-working-with-teams-areas-and-iterations">Task 1: Working with teams, areas, and iterations</h3>
+
+<ol>
+  <li>
+    <p>Navigate to your Parts Unlimited project on Azure DevOps. It will be something like <a href="https://dev.azure.com/YOURACCOUNT/Parts Unlimited">https://dev.azure.com/YOURACCOUNT/Parts%20Unlimited</a>.</p>
+  </li>
+  <li>
+    <p>Open the settings page using the <strong>Project settings</strong> navigation located at the bottom left of the page.</p>
+
+    <p><img src="images/settings.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Teams</strong> tab. There are already a few teams in this project, but you’ll make a new one for this lab. Click <strong>New team</strong>.</p>
+
+    <p><img src="images/001.png" alt></p>
+  </li>
+  <li>
+    <p>Use <strong>“PUL-Web”</strong> as the <strong>Team name</strong> and click <strong>Create team</strong> (Leave defaults).</p>
+
+    <p><img src="images/002.png" alt></p>
+  </li>
+  <li>
+    <p>Select the newly created team to view its details.</p>
+
+    <p><img src="images/003.png" alt></p>
+  </li>
+  <li>
+    <p>By default, the new team has only you as its member. You can use this view to manage membership, notifications, dashboards, and more. But first you will want to define the schedule and scope of the team. Click <strong>Iterations and Area Paths</strong>.</p>
+
+    <p><img src="images/004.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Iterations</strong> tab and click <strong>Select iterations</strong>. This team will use the same iteration schedule that’s already in place for the other teams, although you can take a different route if that’s better for your organization.</p>
+
+    <p><img src="images/iteration.png" alt></p>
+  </li>
+  <li>
+    <p>Select <strong>Parts Unlimited\Sprint 1</strong> and click <strong>Save and close</strong>. Note that this first sprint has already passed. This is because the demo data generator is designed to build out project history so that this sprint occurs in the past.</p>
+
+    <p><img src="images/006.png" alt></p>
+  </li>
+  <li>
+    <p>Repeat the process to add <strong>Sprint 2</strong> and <strong>Sprint 3</strong> (add them as in previous step). The second sprint is our current iteration, and the third is in the near future.</p>
+
+    <p><img src="images/007.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Areas</strong> tab. By default, there is an area matching the name of the team.</p>
+
+    <p><img src="images/008.png" alt></p>
+  </li>
+  <li>
+    <p>From the area dropdown, select <strong>Include sub areas</strong>. The default setting for all teams is to exclude sub-area paths. We will change it to include sub-areas so that the team gets visibility into all of the work items from all teams. Optionally, the management team could also choose to not include sub-areas, thereby removing work items from their view as soon as they are assigned to one of the teams.</p>
+
+    <p><img src="images/009.png" alt></p>
+  </li>
+</ol>
+
+<p><a name="Ex1Task2"></a></p>
+<h3 id="task-2-working-with-work-items">Task 2: Working with work items</h3>
+
+<p>Work items play a prominent role in Azure DevOps. Whether describing work to be done, impediments to release, test definitions, or other key items, work items are the workhorse of modern projects. In this task you’ll focus on using various work items to set up the plan to extend the Parts Unlimited site with a product training section. While it can be daunting to build out such a substantial part of a company’s offering, Azure DevOps and the Scrum process make it very manageable.</p>
+
+<p><img src="images/010.png" alt></p>
+
+<p>This task is designed to illustrate a variety of ways you can create different kinds of work items, as well as to demonstrate the breadth of features available on the platform. As a result, these steps should not be viewed as prescriptive guidance for project management. The features are intended to be flexible enough to fit your process needs, so explore and experiment as you go.</p>
+
+<ol>
+  <li>
+    <p>Navigate to <strong>Overview | Dashboards</strong>.</p>
+
+    <p><img src="images/011.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Overview</strong> dashboard for <strong>Parts Unlimited Team</strong>.</p>
+
+    <p><img src="images/012.png" alt></p>
+  </li>
+  <li>
+    <p>There are many ways to create work items in Azure DevOps, and we’ll explore a few of them. Sometimes it’s as simple as firing one off from a dashboard. In the <strong>New Work Item</strong> form, type <strong>“Product training”</strong> and select the <strong>Epic</strong> type. Click <strong>Create</strong>.</p>
+
+    <p><img src="images/new-wit.png" alt>
+ <img src="images/013.png" alt></p>
+  </li>
+  <li>
+    <p>Assign the new work item to yourself and set the <strong>Area</strong> to <strong>Parts Unlimited\PUL-Web</strong>. Set the <strong>Iteration</strong> to <strong>Parts Unlimited\Sprint 2</strong> and click <strong>Save &amp; Close</strong>. Ordinarily you would want to fill out as much information as possible, but you can run lean here for the purposes of this lab.</p>
+
+    <p><img src="images/014.png" alt></p>
+  </li>
+  <li>
+    <p>Navigate to <strong>Boards | Work Items</strong>.</p>
+
+    <p><img src="images/015.png" alt></p>
+  </li>
+  <li>
+    <p>Locate the newly created epic for <strong>Product training</strong> and open it.</p>
+
+    <p><img src="images/016.png" alt></p>
+  </li>
+  <li>
+    <p>The work item form includes everything you could ever want to know about a work item. This includes details about who it’s assigned to, its status across many parameters, and all the associated information and history for how it has been handled since creation. One of the key areas to focus on is the <strong>Related Work</strong>. One of the ways to add a feature to this epic is to select <strong>Add link | New item</strong>.</p>
+
+    <p><img src="images/017.png" alt></p>
+  </li>
+  <li>
+    <p>Set the <strong>Work item type</strong> to <strong>Feature</strong> and set the <strong>Title</strong> to <strong>“Training dashboard”</strong>. Click <strong>OK</strong>.</p>
+
+    <p><img src="images/018.png" alt></p>
+  </li>
+  <li>
+    <p>That <strong>Assignment</strong>, <strong>Area</strong>, and <strong>Iteration</strong> should already set to the same as the epic, and it’s even linked to the parent item it was created from. Click <strong>Save &amp; Close</strong>.</p>
+
+    <p><img src="images/019.png" alt></p>
+  </li>
+  <li>
+    <p>Navigate to the <strong>Boards</strong> view.</p>
+
+    <p><img src="images/020.png" alt></p>
+  </li>
+  <li>
+    <p>Select <strong>PUL-Web Boards</strong>. This will open the board for that particular team.</p>
+
+    <p><img src="images/021.png" alt></p>
+  </li>
+  <li>
+    <p>Switch the board from showing <strong>Backlog items</strong> to showing <strong>Features</strong>. This will make it easy to add tasks and other work items to the features.</p>
+
+    <p><img src="images/022.png" alt></p>
+  </li>
+  <li>
+    <p>From the <strong>Training dashboard</strong> dropdown, select <strong>Add Product Backlog Item</strong>.</p>
+
+    <p><img src="images/023.png" alt></p>
+  </li>
+  <li>
+    <p>Name the first backlog item <strong>“As a customer, I want to view new tutorials”</strong> and press <strong>Enter</strong> to save. This creates a new <strong>Product Backlog Item</strong> (PBI) work item that is a child of the feature and shares its area and iteration.</p>
+
+    <p><img src="images/024.png" alt></p>
+  </li>
+  <li>
+    <p>Add two more PBIs designed to enable the customer to see their recently viewed tutorials and to request new tutorials.</p>
+
+    <p><img src="images/025.png" alt></p>
+  </li>
+  <li>
+    <p>Switch the task board view back to <strong>Backlog items</strong>.</p>
+
+    <p><img src="images/026.png" alt></p>
+  </li>
+  <li>
+    <p>Backlog items have a state that defines where they are relative to being completed. While you could open and edit the work item using the form, it’s easier to just drag cards on the board. Drag the first work item to <strong>Approved</strong>.</p>
+
+    <p><img src="images/027.png" alt></p>
+  </li>
+  <li>
+    <p>You can also expand work item cards to get to conveniently editable details.</p>
+
+    <p><img src="images/028.png" alt></p>
+  </li>
+  <li>
+    <p>Assign the moved PBI to yourself.</p>
+
+    <p><img src="images/029.png" alt></p>
+  </li>
+  <li>
+    <p>Drag the second work item to the <strong>Committed</strong> stage.</p>
+
+    <p><img src="images/030.png" alt></p>
+  </li>
+  <li>
+    <p>Drag the final PBI to the <strong>Done</strong> stage.</p>
+
+    <p><img src="images/031.png" alt></p>
+  </li>
+  <li>
+    <p>The task board is one view into the backlog. View the tabular form by clicking <strong>View as Backlog</strong>.</p>
+
+    <p><img src="images/032.png" alt></p>
+  </li>
+  <li>
+    <p>Click the <strong>Expand</strong> button, which allows you to view nested tasks under these work items. Another easy way to create work items is using the <strong>Add</strong> button on the backlog. Click it to add a new task to the first backlog item.</p>
+
+    <p><img src="images/033.png" alt></p>
+  </li>
+  <li>
+    <p>Set the <strong>Title</strong> to <strong>“Add page for most recent tutorials”</strong>. Set the <strong>Remaining Work</strong> to <strong>“5”</strong> and the <strong>Activity</strong> to <strong>“Development”</strong>. Click <strong>Save &amp; Close</strong>.</p>
+
+    <p><img src="images/034.png" alt></p>
+  </li>
+  <li>
+    <p>Add another task to <strong>“Optimize data query for most recent tutorials”</strong>. Set its <strong>Remaining Work</strong> to <strong>“3”</strong> and its <strong>Activity</strong> to <strong>“Design”</strong>. Click <strong>Save &amp; Close</strong>.</p>
+
+    <p><img src="images/035.png" alt></p>
+  </li>
+</ol>
+
+<p><a name="Ex1Task3"></a></p>
+<h3 id="task-3-managing-sprints-and-capacity">Task 3: Managing sprints and capacity</h3>
+
+<p>Your team builds the sprint backlog during the sprint planning meeting, typically held on the first day of the sprint. Each sprint corresponds to a time-boxed interval which supports your team’s ability to work using Agile processes and tools. During the planning meeting, your product owner works with your team to identify those stories or backlog items to complete in the sprint.</p>
+
+<p>Planning meetings typically consist of two parts. In the first part, the team and product owner identify the backlog items that the team feels it can commit to completing in the sprint, based on experience with previous sprints. These items get added to the sprint backlog. In the second part, your team determines how it will develop and test each item. They then define and estimate the tasks required to complete each item. Finally, your team commits to implementing some or all the items based on these estimates.</p>
+
+<ol>
+  <li>
+    <p>Your sprint backlog should contain all the information your team needs to successfully plan and complete work within the time allotted without having to rush at the end. Before you start planning your sprint, you’ll want to have created, prioritized, and estimated your backlog and defined your sprints. Navigate to the <strong>Sprints</strong> view using the navigation.</p>
+
+    <p><img src="images/036.png" alt></p>
+  </li>
+  <li>
+    <p>From the <strong>View options</strong> dropdown, select the <strong>Work details</strong> panel option.</p>
+
+    <p><img src="images/037.png" alt></p>
+  </li>
+  <li>
+    <p>The current sprint has a pretty limited scope. There are two tasks in the <strong>To do</strong> stage that combine for 8 hours of estimated work. At this point, neither task has been assigned.</p>
+
+    <p><img src="images/038.png" alt></p>
+  </li>
+  <li>
+    <p>Assign the <strong>Add page</strong> task to yourself. Note that this updates the capacity view.</p>
+
+    <p><img src="images/039.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Capacity</strong> tab. This view enables you to define what activities a user can take on and at what level of capacity. In this case, set your capacity to allow <strong>“1”</strong> hour of <strong>Development</strong> per day. Note that you can add additional activities per user in the case they do more than just development.</p>
+
+    <p><img src="images/040.png" alt></p>
+  </li>
+  <li>
+    <p>However, let’s assume you’re going to take some vacation. Click <strong>0 days</strong> under <strong>Days off</strong>.</p>
+
+    <p><img src="images/041.png" alt></p>
+  </li>
+  <li>
+    <p>Set your vacation to span five work days during the current sprint (within the next few weeks). Click <strong>OK</strong>.</p>
+
+    <p><img src="images/042.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Save</strong>.</p>
+
+    <p><img src="images/043.png" alt></p>
+  </li>
+  <li>
+    <p>Return to the <strong>Taskboard</strong>.</p>
+
+    <p><img src="images/044.png" alt></p>
+  </li>
+  <li>
+    <p>Note that the capacity view has been updated to reflect your available bandwidth. This exact number may vary, but for the screenshots here, that sprint capacity is 11 hours (1 hour per day over 11 working days).</p>
+
+    <p><img src="images/045.png" alt></p>
+  </li>
+  <li>
+    <p>One convenient feature of the boards is that you can easily update key data in-line. It’s a good practice to regularly update the <strong>Remaining Work</strong> estimate to reflect the amount of time expected for each task. Let’s say you’ve reviewed the work for the <strong>Add page</strong> task and found that it will actually take longer than originally expected. Set it to whatever your total capacity is for this sprint.</p>
+
+    <p><img src="images/046.png" alt></p>
+  </li>
+  <li>
+    <p>Note how this expands the <strong>Development</strong> and your personal capacities to their maximum. Since they’re large enough to cover the assigned tasks, they stay green. However, the overall <strong>Team</strong> capacity is exceeded due to the additional 3 hours required by the other task.</p>
+
+    <p><img src="images/047.png" alt></p>
+  </li>
+  <li>
+    <p>One way to resolve this capacity issue would be to move the task to a future iteration. There are a few ways this could be done. First, you could open the task here and edit it in the dialog. The <strong>Backlog</strong> view, on the other hand, provides an in-line menu option to move it. Don’t move it now.</p>
+
+    <p><img src="images/048.png" alt></p>
+  </li>
+  <li>
+    <p>Return to the <strong>Taskboard</strong> view.</p>
+
+    <p><img src="images/049.png" alt></p>
+  </li>
+  <li>
+    <p>Select <strong>People</strong> from the <strong>View options</strong> dropdown.</p>
+
+    <p><img src="images/050.png" alt></p>
+  </li>
+  <li>
+    <p>This adjusts your view such that you can review the progress of tasks by person instead of by backlog item.</p>
+
+    <p><img src="images/051.png" alt></p>
+  </li>
+  <li>
+    <p>There is also a lot of customization available. Click the <strong>Configure team settings</strong> button.</p>
+
+    <p><img src="images/052.png" alt></p>
+  </li>
+  <li>
+    <p>On the <strong>Styles</strong> tab, click <strong>Add Styling rule</strong> and set the <strong>Name</strong> to <strong>“Development”</strong>. Choose a green <strong>Card color</strong>. This will color all cards green if they meet the rule criteria set below.</p>
+
+    <p><img src="images/053.png" alt></p>
+  </li>
+  <li>
+    <p>Add a rule for <strong>Activity = Development</strong>. This will set all cards assigned to <strong>Development</strong> activities green.</p>
+
+    <p><img src="images/054.png" alt></p>
+  </li>
+  <li>
+    <p>The <strong>Backlogs</strong> tab allows you to set the levels available for navigation. Epics are not included by default, but you could change that here.</p>
+
+    <p><img src="images/055.png" alt></p>
+  </li>
+  <li>
+    <p>You can also specify the <strong>Working days</strong> the team follows. This applies to capacity and burndown calculations.</p>
+
+    <p><img src="images/056.png" alt></p>
+  </li>
+  <li>
+    <p>The <strong>Working with bugs</strong> tab allows you to specify how bugs are presented on the board.</p>
+
+    <p><img src="images/057.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Save and close</strong> to save the styling rule.</p>
+
+    <p><img src="images/058.png" alt></p>
+  </li>
+  <li>
+    <p>The task associated with <strong>Development</strong> is now green and very easy to identify.</p>
+
+    <p><img src="images/059.png" alt></p>
+  </li>
+</ol>
+
+<p><a name="Ex1Task4"></a></p>
+<h3 id="task-4-customizing-kanban-boards">Task 4: Customizing Kanban boards</h3>
+
+<p>To maximize a team’s ability to consistently deliver high quality software, Kanban emphasize two main practices. The first, visualize the flow of work, requires you to map your team’s workflow stages and configure your Kanban board to match. The second, constrain the amount of work in progress, requires you to set work-in-progress (WIP) limits. You’re then ready to track progress on your Kanban board and monitor key metrics to reduce lead or cycle time. Your Kanban board turns your backlog into an interactive signboard, providing a visual flow of work. As work progresses from idea to completion, you update the items on the board. Each column represents a work stage, and each card represents a user story (blue cards) or a bug (red cards) at that stage of work. However, every team develops its own process over time, so the ability to customize the Kanban board to match the way your team works is crucial.</p>
+
+<ol>
+  <li>
+    <p>Navigate to <strong>Boards</strong>.</p>
+
+    <p><img src="images/060.png" alt></p>
+  </li>
+  <li>
+    <p>Click the <strong>Configure team settings</strong> button.</p>
+
+    <p><img src="images/061.png" alt></p>
+  </li>
+  <li>
+    <p>The team is emphasizing work done with data, so there is special attention paid to any task associated with accessing or storing data. Select the <strong>Tag colors</strong> tab. Click <strong>Add tag color</strong> enter a tag of <strong>“data”</strong>. Whenever a backlog item or bug is tagged with <strong>data</strong>, that tag will be highlighted.</p>
+
+    <p><img src="images/062.png" alt></p>
+  </li>
+  <li>
+    <p>You can also specify which <strong>Annotations</strong> you would like included on cards to make them easier to read and navigate. When an annotation is enabled, the child work items of that type are easily accessible by clicking the visualization on each card.</p>
+
+    <p><img src="images/063.png" alt></p>
+  </li>
+  <li>
+    <p>The <strong>Tests</strong> tab enables you to configure how tests appear and behave on the cards.</p>
+
+    <p><img src="images/064.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Save and close</strong>.</p>
+
+    <p><img src="images/065.png" alt></p>
+  </li>
+  <li>
+    <p>Open the <strong>view new tutorials</strong> backlog item.</p>
+
+    <p><img src="images/066.png" alt></p>
+  </li>
+  <li>
+    <p>Add tags for <strong>“data”</strong> and <strong>“ux”</strong>. Click <strong>Save &amp; Close</strong>.</p>
+
+    <p><img src="images/067.png" alt></p>
+  </li>
+  <li>
+    <p>Note that the two tags are now visible on the card, although the <strong>data</strong> tag is highlighted yellow as configured.</p>
+
+    <p><img src="images/068.png" alt></p>
+  </li>
+  <li>
+    <p>Click the <strong>Configure team settings</strong> button.</p>
+
+    <p><img src="images/069.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Columns</strong> tab. This section allows you to add new stages to the workflow. Click <strong>Add Column</strong> and set the <strong>Name</strong> to <strong>“QA Approved”</strong>. Set the <strong>WIP limit</strong> to <strong>“1”</strong>, which indicates that only one work item should be in this stage at a time. You would ordinarily set this higher, but there are only two work items to demonstrate the feature with here. Move the stage to occur between <strong>Committed</strong> and <strong>Done</strong>.</p>
+
+    <p><img src="images/070.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Save and close</strong>.</p>
+
+    <p><img src="images/071.png" alt></p>
+  </li>
+  <li>
+    <p>You will now see the new stage in the workflow.</p>
+
+    <p><img src="images/072.png" alt></p>
+  </li>
+  <li>
+    <p>Move the work items from <strong>Committed</strong> and <strong>Done</strong> into <strong>QA Approved</strong>.</p>
+
+    <p><img src="images/073.png" alt></p>
+  </li>
+  <li>
+    <p>The stage now exceeds its <strong>WIP</strong> limit and is colored red as a warning.</p>
+
+    <p><img src="images/074.png" alt></p>
+  </li>
+  <li>
+    <p>Move the <strong>recently viewed</strong> backlog item back to <strong>Committed</strong>.</p>
+
+    <p><img src="images/075.png" alt></p>
+  </li>
+  <li>
+    <p>Click the <strong>Configure team settings</strong> button.</p>
+
+    <p><img src="images/076.png" alt></p>
+  </li>
+  <li>
+    <p>Return to the <strong>Columns</strong> tab and select <strong>QA Approved</strong>. A lag often exists between when work gets moved into a column and when work starts. To counter that lag and reveal the actual state of work in progress, you can turn on split columns. When split, each column contains two sub-columns: <strong>Doing</strong> and <strong>Done</strong>. Split columns let your team implement a pull model. Without split columns, teams push work forward, to signal that they’ve completed their stage of work. However, pushing it to the next stage doesn’t necessarily mean that a team member immediately starts work on that item. Check <strong>Split column into doing and done</strong> to create two separate columns for this.</p>
+
+    <p><img src="images/077.png" alt></p>
+  </li>
+  <li>
+    <p>As your team updates the status of work as it progresses from one stage to the next, it helps that they agree on what <strong>done</strong> means. By specifying the <strong>Definition of done</strong> criteria for each Kanban column, you help share the essential tasks to complete before moving an item into a downstream stage. Add a <strong>Definition of done</strong> using markdown, such as <strong>“Passes **all** tests.”</strong>. Click <strong>Save and close</strong>.</p>
+
+    <p><img src="images/078.png" alt></p>
+  </li>
+  <li>
+    <p>Note that the <strong>QA Approved</strong> stage now has <strong>Doing</strong> and <strong>Done</strong> columns.</p>
+
+    <p><img src="images/079.png" alt></p>
+  </li>
+  <li>
+    <p>You can also click the icon next to the column header to read the <strong>Definition of done</strong>.</p>
+
+    <p><img src="images/080.png" alt></p>
+  </li>
+  <li>
+    <p>Click the <strong>Configure team settings</strong> button.</p>
+
+    <p><img src="images/081.png" alt></p>
+  </li>
+  <li>
+    <p>Your Kanban board supports your ability to visualize the flow of work as it moves from new to done. When you add <strong>swimlanes</strong>, you can also visualize the status of work that supports different service-level classes. You can create a swimlane to represent any other dimension that supports your tracking needs. From the <strong>Swimlanes</strong> tab, click <strong>Add Swimlane</strong> and set the <strong>Name</strong> to <strong>“Expedite”</strong>. Click <strong>Save and close</strong>.</p>
+
+    <p><img src="images/082.png" alt></p>
+  </li>
+  <li>
+    <p>Drag and drop the <strong>Committed</strong> work item onto <strong>QA Approved | Doing</strong> so that it gets recognized as having priority when QA bandwidth becomes available.</p>
+
+    <p><img src="images/083.png" alt></p>
+  </li>
+  <li>
+    <p>If you would like to review a more sophisticated board with many more work items, select the <strong>Parts Unlimited Team</strong> from the team dropdown.</p>
+
+    <p><img src="images/084.png" alt></p>
+  </li>
+  <li>
+    <p>This board provides a playground for you to experiment with and review the results.</p>
+
+    <p><img src="images/085.png" alt></p>
+  </li>
+</ol>
+
+<p><a name="Ex1Task5"></a></p>
+<h3 id="task-5-defining-dashboards">Task 5: Defining dashboards</h3>
+
+<ol>
+  <li>
+    <p>Select <strong>Overview | Dashboards</strong>.</p>
+
+    <p><img src="images/086.png" alt></p>
+  </li>
+  <li>
+    <p>From the dashboard dropdown, select <strong>Parts Unlimited Team Overview</strong>. Dashboards allow teams to visualize status and monitor progress across the project. At a glance, you can make informed decisions without having to drill down into other parts of your team project site. The Overview page provides access to a default team dashboard which you can customize by adding, removing, or rearranging the tiles. Each tile corresponds to a widget that provides access to one or more features or functions.</p>
+
+    <p><img src="images/087.png" alt></p>
+  </li>
+  <li>
+    <p>From the dashboard dropdown, select <strong>New dashboard</strong>.</p>
+
+    <p><img src="images/088.png" alt></p>
+  </li>
+  <li>
+    <p>Set the <strong>Name</strong> to <strong>“Product training”</strong> and select the <strong>PUL-Web</strong> team. Click <strong>Create</strong>.</p>
+
+    <p><img src="images/089.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Add a widget</strong>.</p>
+
+    <p><img src="images/090.png" alt></p>
+  </li>
+  <li>
+    <p>In the <strong>Add Widget</strong> panel, search for <strong>“sprint”</strong> to find existing widgets that focus on sprints. Select <strong>Sprint Overview</strong> and click <strong>Add</strong>.</p>
+
+    <p><img src="images/091.png" alt></p>
+  </li>
+  <li>
+    <p>Many widgets have options you can configure. Click the <strong>Settings</strong> button.</p>
+
+    <p><img src="images/092.png" alt></p>
+  </li>
+  <li>
+    <p>The quantity and depth of settings will vary by widget. Click <strong>Close</strong> to dismiss.</p>
+
+    <p><img src="images/093.png" alt></p>
+  </li>
+  <li>
+    <p>Search the widgets again for <strong>“sprint”</strong> and add the <strong>Sprint Capacity</strong> widget.</p>
+
+    <p><img src="images/094.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Done Editing</strong>.</p>
+
+    <p><img src="images/095.png" alt></p>
+  </li>
+  <li>
+    <p>You can now review two important aspects of your current sprint on your custom dashboard.</p>
+
+    <p><img src="images/096.png" alt></p>
+  </li>
+  <li>
+    <p>Another way of customizing dashboards is to generate charts based on work item queries, which you can share to a dashboard. Select <strong>Boards | Queries</strong>.</p>
+
+    <p><img src="images/097.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>New query</strong>.</p>
+
+    <p><img src="images/098.png" alt></p>
+  </li>
+  <li>
+    <p>Set the first term to <strong>Work Item Type = Task</strong> and the second term to <strong>Area Path = Parts Unlimited\PUL-Web</strong>.</p>
+
+    <p><img src="images/099.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>Save query</strong>.</p>
+
+    <p><img src="images/100.png" alt></p>
+  </li>
+  <li>
+    <p>Set the <strong>Name</strong> to <strong>“Web tasks”</strong> and the <strong>Folder</strong> to <strong>Shared Queries</strong>. Click <strong>OK</strong>.</p>
+
+    <p><img src="images/101.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Charts</strong> tab and click <strong>New chart</strong>.</p>
+
+    <p><img src="images/102.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>New chart</strong>.</p>
+
+    <p><img src="images/103.png" alt></p>
+  </li>
+  <li>
+    <p>Set the <strong>Name</strong> of the chart to <strong>“Web tasks - By assignment”</strong> and <strong>Group by</strong> to <strong>Assigned To</strong>. Click <strong>OK</strong> to save.</p>
+
+    <p><img src="images/104.png" alt></p>
+  </li>
+  <li>
+    <p>You can now add this chart to a dashboard.</p>
+
+    <p><img src="images/105.png" alt></p>
+  </li>
+</ol>
+
+<p><a name="Ex1Task6"></a></p>
+<h3 id="task-6-customizing-team-process">Task 6: Customizing team process</h3>
+
+<p>In Azure DevOps, you customize your work tracking experience through a process. A process defines the building blocks of the work item tracking system as well as other sub-systems you access through Azure DevOps. Whenever you create a team project, you select the process which contains the building blocks you want for your project.</p>
+
+<p>Azure DevOps supports two process types. The first, the core system processes-Scrum, Agile, and CMMI system processes-are locked. You cannot customize these processes. The second type, inherited processes, you create from a core system process. These processes you can customize.</p>
+
+<p>In addition, all processes are shared. That is, one or more team projects can reference a single process. Instead of customizing a single team project, you customize a process. Changes made to the process automatically update all team projects that reference that process.</p>
+
+<p>Once you’ve created an inherited process, you can customize it, create team projects based on it, and migrate existing team projects to reference it. The Git team project can’t be customized until it’s migrated to an inherited process.</p>
+
+<p>In this task we’ll create a new process that inherits from Scrum. The one change we’ll make is to add a backlog item field designed to track to a proprietary PartsUnlimited ticket ID.</p>
+
+<ol>
+  <li>
+    <p>Click the <strong>Azure DevOps</strong> logo in the top left corner to navigate to the account root.</p>
+
+    <p><img src="images/106.png" alt></p>
+  </li>
+  <li>
+    <p>From the left bottom corner, click <strong>Organization settings</strong>.</p>
+
+    <p><img src="images/107.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Process</strong> tab under <strong>Boards</strong>.</p>
+
+    <p><img src="images/process.png" alt></p>
+  </li>
+  <li>
+    <p>From the <strong>Scrum</strong> dropdown, select <strong>Create inherited process</strong>.</p>
+
+    <p><img src="images/109.png" alt></p>
+  </li>
+  <li>
+    <p>Set the name of the inherited process to <strong>Customized Scrum</strong> and click <strong>Create process</strong>.</p>
+
+    <p><img src="images/110.png" alt></p>
+  </li>
+  <li>
+    <p>Open <strong>Customized Scrum</strong>. You may need to refresh the browser for this to become visible.</p>
+
+    <p><img src="images/111.png" alt></p>
+  </li>
+  <li>
+    <p>Select <strong>Product Backlog Item</strong>.</p>
+
+    <p><img src="images/112.png" alt></p>
+  </li>
+  <li>
+    <p>Click <strong>New field</strong>.</p>
+
+    <p><img src="images/113.png" alt></p>
+  </li>
+  <li>
+    <p>Set the <strong>Name</strong> of the new field to <strong>“PUL Ticket ID”</strong>.</p>
+
+    <p><img src="images/114.png" alt></p>
+  </li>
+  <li>
+    <p>On the <strong>Layout</strong> tab, set the <strong>Label</strong> to <strong>“Ticket ID”</strong>. Also <strong>Create a new group</strong> for <strong>“PartsUnlimited”</strong>. Click <strong>Add field</strong>.</p>
+
+    <p><img src="images/115.png" alt></p>
+  </li>
+  <li>
+    <p>Now that the customized process has been configured, let’s switch the Parts Unlimited project to use it. Return to the <strong>All processes</strong> root using the breadcrumb.</p>
+
+    <p><img src="images/116.png" alt></p>
+  </li>
+  <li>
+    <p>Our project currently uses <strong>Scrum</strong>, so select that process.</p>
+
+    <p><img src="images/117.png" alt></p>
+  </li>
+  <li>
+    <p>Switch to the <strong>Projects</strong> tab.</p>
+
+    <p><img src="images/118.png" alt></p>
+  </li>
+  <li>
+    <p>From the context menu for <strong>Parts Unlimited</strong>. Select <strong>Change process</strong>.</p>
+
+    <p><img src="images/119.png" alt></p>
+  </li>
+  <li>
+    <p>Select the <strong>Customized Scrum</strong> process and click <strong>Save</strong>.</p>
+
+    <p><img src="images/120.png" alt></p>
+  </li>
+  <li>
+    <p>Return to the account dashboard using the logo link.</p>
+
+    <p><img src="images/121.png" alt></p>
+  </li>
+  <li>
+    <p>Open the <strong>Parts Unlimited</strong> portal.</p>
+
+    <p><img src="images/122.png" alt></p>
+  </li>
+  <li>
+    <p>Select <strong>Boards | Work Items</strong>.</p>
+
+    <p><img src="images/123.png" alt></p>
+  </li>
+  <li>
+    <p>Open the first backlog item.</p>
+
+    <p><img src="images/124.png" alt></p>
+  </li>
+  <li>
+    <p>You will now see the <strong>Ticket ID</strong> field under the <strong>PartsUnlimited</strong> group defined during the process customization. You can treat this like any other text field.</p>
+
+    <p><img src="images/125.png" alt></p>
+  </li>
+  <li>
+    <p>Once the work item is saved, Azure DevOps will also save the new custom information so that it will be available for queries and through the rest of Azure DevOps.</p>
+  </li>
+</ol>
+
+<h2 id="reference">Reference</h2>
+
+<p>Thanks to <strong>Nagaraj Bhairaji</strong> for making a video on this lab. You can watch the following video that walks you through all the steps explained in this lab</p>
+
+<figure class="video_container">
+  <iframe width="560" height="315" src="WWUf5OWeBD0.html" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+
+
+    <div class="tags">
+        
+    </div>
+</div>
+
+
+
+
+
+                </div>
+            
+            <div class="col-sm-2 sidebar-content">
+                     
+                                    
+                    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, showEffect: 'fadeIn', headers: 'h2,h3' });
+/* this offset helps account for the space taken up by the floating toolbar. */
+$("#toc ul li a:first").addClass("active");
+
+$('#toc').on('click', 'a', function() {  
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top -70    
+  $(window).scrollTop(scroll_target - 0); 
+  $('#toc a').removeClass('active');
+$(this).addClass('active');      
+  return false
+});
+
+});
+</script>
+<script>
+  /* on scroll highlight the respective section heading on right side bar */
+$(window).on('scroll', function() {
+     $('.post-content h2, .post-content h3').each(function() {
+           if($(window).scrollTop() >= $(this).offset().top-90) {
+            var id = $(this).attr('id');
+            $('#toc a').removeClass('active');
+            $('#toc a[href="#'+ id +'"]').addClass('active');
+            
+        }
+    });
+});
+</script>
+<div id="toc"></div>
+                    
+                
+                
+            </div>
+
+        
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <div class="container">
+                <div class="row">
+                        <div class="col-sm-10 pl-3" id="footer-content">
+                                <h4 class="ml-3 heading4">Feedback</h4>
+<div class="alert alert-secondary">
+  <p>Send feedback about: </p>
+     <p><a href="https://github.com/Microsoft/azuredevopslabs/issues" class="github-btn"><i class="fa fa-github"></i> This page <i class="fa fa-external-link"></i></a></p> 
+</div>
+                        </div>
+                </div>
+            </div>
+        <!-- begin usabilla live embed code -->
+      <!--  <script type="text/javascript">/*{literal}<![CDATA[*/window.lightningjs||function(c){function g(b,d){d&&(d+=(/\?/.test(d)?"&":"?")+"lv=1");c[b]||function(){var i=window,h=document,j=b,g=h.location.protocol,l="load",k=0;(function(){function b(){a.P(l);a.w=1;c[j]("_load")}c[j]=function(){function m(){m.id=e;return c[j].apply(m,arguments)}var b,e=++k;b=this&&this!=i?this.id||0:0;(a.s=a.s||[]).push([e,b,arguments]);m.then=function(b,c,h){var d=a.fh[e]=a.fh[e]||[],j=a.eh[e]=a.eh[e]||[],f=a.ph[e]=a.ph[e]||[];b&&d.push(b);c&&j.push(c);h&&f.push(h);return m};return m};var a=c[j]._={};a.fh={};a.eh={};a.ph={};a.l=d?d.replace(/^\/\//,(g=="https:"?g:"http:")+"//"):d;a.p={0:+new Date};a.P=function(b){a.p[b]=new Date-a.p[0]};a.w&&b();i.addEventListener?i.addEventListener(l,b,!1):i.attachEvent("on"+l,b);var q=function(){function b(){return["<head></head><",c,' onload="var d=',n,";d.getElementsByTagName('head')[0].",d,"(d.",g,"('script')).",i,"='",a.l,"'\"></",c,">"].join("")}var c="body",e=h[c];if(!e)return setTimeout(q,100);a.P(1);var d="appendChild",g="createElement",i="src",k=h[g]("div"),l=k[d](h[g]("div")),f=h[g]("iframe"),n="document",p;k.style.display="none";e.insertBefore(k,e.firstChild).id=o+"-"+j;f.frameBorder="0";f.id=o+"-frame-"+j;/MSIE[ ]+6/.test(navigator.userAgent)&&(f[i]="javascript:false");f.allowTransparency="true";l[d](f);try{f.contentWindow[n].open()}catch(s){a.domain=h.domain,p="javascript:var d="+n+".open();d.domain='"+h.domain+"';",f[i]=p+"void(0);"}try{var r=f.contentWindow[n];r.write(b());r.close()}catch(t){f[i]=p+'d.write("'+b().replace(/"/g,String.fromCharCode(92)+'"')+'");d.close();'}a.P(2)};a.l&&setTimeout(q,0)})()}();c[b].lv="1";return c[b]}var o="lightningjs",k=window[o]=g(o);k.require=g;k.modules=c}({});
+        window.usabilla_live = lightningjs.require("usabilla_live", "//w.usabilla.com/75008a3e08ca.js");
+        /*]]>{/literal}*/</script> -->
+        <!-- end usabilla live embed code -->
+        <div class="container">
+            
+
+    <div id="disqus_thread">
+    </div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'almvm'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+            </div>  
+            <!-- begin SurveySparrow live embed code -->
+    <script>(function(){var t,e,s,n="ss-widget",r="script",a=document,o=window;o.SS_WIDGET_TOKEN="tt-1c06a0",o.SS_ACCOUNT="mssupport.surveysparrow.com",o.SS_SURVEY_NAME="azuredevops-labs-feedback-survey";a.getElementById(n)||(t=a.getElementsByTagName(r),s=t[t.length-1],e=a.createElement(r),e.type="text/javascript",e.async=!0,e.id=n,e.src=["https://","mssupport.surveysparrow.com/widget/",o.SS_WIDGET_TOKEN].join(""),s.parentNode.insertBefore(e,s))})();</script>
+    <!-- end SurveySparrow live embed code -->
+      <script type="text/javascript">(function(d, t, e, m){
+    
+        // Async Rating-Widget initialization.
+        window.RW_Async_Init = function(){
+                    
+            RW.init({
+                huid: "422497",
+                uid: "02abadf52f23c9da4406772fb9ff2084",
+                source: "website",
+                options: {
+                    "advanced": {
+                        "text": {
+                            "rateThis": "Rate this lab"
+                        }
+                    },
+                    "size": "medium",
+                    "style": "oxygen",
+                    "isDummy": false
+                } 
+            });
+            RW.render();
+        };
+            // Append Rating-Widget JavaScript library.
+        var rw, s = d.getElementsByTagName(e)[0], id = "rw-js",
+            l = d.location, ck = "Y" + t.getFullYear() + 
+            "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+            f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+            a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+        if (d.getElementById(id)) return;              
+        rw = d.createElement(e);
+        rw.id = id; rw.async = true; rw.type = "text/javascript";
+        rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+        s.parentNode.insertBefore(rw, s);
+        }(document, new Date(), "script", "rating-widget.com/"));</script>
+
+</body>
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+ <div class="to-top-container">
+    <a href="#" id="toTop" style="display: inline;" class="x-hidden-focus hide">
+            <i class="fa fa-arrow-up" aria-hidden="true" style="margin-top:10px"></i>
+    </a>
+
+
+</div>
+
+

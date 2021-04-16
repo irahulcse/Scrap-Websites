@@ -1,8 +1,8 @@
 const scrape = require('website-scraper');
 
 let options = {
-    urls: ['https://adespresso.com/blog/17-amazing-examples-of-instagram-and-facebook-stories-that-convert/'],
-    directory: './adespresso',
+    urls: ['https://azuredevopslabs.com/labs/azuredevops/agile/'],
+    directory: './agilmodel`',
 };
 
 scrape(options).then((result) => {
